@@ -114,7 +114,7 @@ def main():
     # --- Drinking? ---
     drinking = input("Are you drinking tonight? (Y/N): ").strip().upper()
     if drinking == "Y":
-        print("How fun!")
+        print("Sounds good!")
     else:
         print("Too bad!")
 
