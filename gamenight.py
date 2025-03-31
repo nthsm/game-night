@@ -93,7 +93,17 @@ def select_games(pool, num_games):
         selected = random.sample(pool, num_games)
         if is_valid_selection(selected):
             return selected
-        
+
+# ------------------------------
+# PLAYER NUMBER ASSIGNMENT
+# ------------------------------
+
+def assign_player_numbers(players):
+    shuffled = players.copy()
+    random.shuffle(shuffled)
+    return {i+1: shuffled[i] for i in range(len(shuffled))}
+
+
 # ------------------------------
 # GAME NIGHT SCRIPT
 # ------------------------------
@@ -126,6 +136,10 @@ def main():
         print("\nHow to Play:", game['how_to_play'])
         if drinking == "Y":
             print("\nDrinking Rules:", game['drinking_rules'])
+        player_numbers = assign_player_numbers(players)
+        print()
+        for num, name in player_numbers.items():
+            print(f"Player {num}: {name}")
 
         while True:
             done = input("\nAre you done with this game? (Y/N): ").strip().upper()
